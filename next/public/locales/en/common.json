@@ -1,9 +1,9 @@
 {
   "create": {
-    "title": "Encrypt message",
+    "title": "Secure Credentials for Weave",
     "inputSecretLabel": "Secret message",
-    "inputSecretPlaceholder": "Message to encrypt locally in your browser",
-    "buttonEncrypt": "Encrypt Message",
+    "inputSecretPlaceholder": "",
+    "buttonEncrypt": "Send Message",
     "buttonEncryptLoading": "Encrypting message...",
     "inputOneTimeLabel": "One-time download",
     "inputPasswordLabel": "Custom decryption key",

@@ -130,13 +130,6 @@ const CreateSecret = () => {
           <Grid container justifyContent="center" marginTop={2}>
             <Expiration control={control} />
           </Grid>
-          <Grid container alignItems="center" direction="column">
-            <OneTime register={register} />
-            <SpecifyPasswordToggle register={register} />
-            {!generateDecryptionKey && (
-              <SpecifyPasswordInput register={register} />
-            )}
-          </Grid>
           <Grid container justifyContent="center">
             <Box p={2} pb={4}>
               <Button

@@ -30,20 +30,14 @@ const Result = ({ uuid, password, prefix, customPassword }: ResultProps) => {
 
   return (
     <Box>
-      <Typography variant="h4">{t('result.title')}</Typography>
+      <Typography variant="h4">Send link to Weave</Typography>
       <Typography>
-        {t('result.subtitleDownloadOnce')}
-        <br />
-        {t('result.subtitleChannel')}
+          Please share this link with your Weave representative.
       </Typography>
       <TableContainer>
         <Table>
           <TableBody>
-            {!customPassword && (
               <Row label={t('result.rowLabelOneClick')} value={full} />
-            )}
-            <Row label={t('result.rowLabelShortLink')} value={short} />
-            <Row label={t('result.rowLabelDecryptionKey')} value={password} />
           </TableBody>
         </Table>
       </TableContainer>

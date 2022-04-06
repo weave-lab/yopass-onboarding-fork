@@ -1,8 +1,8 @@
 {
   "create": {
-    "title": "Encrypt message",
+    "title": "Secure Credentials for Weave",
     "inputSecretLabel": "Secret message",
-    "inputSecretPlaceholder": "Message to encrypt locally in your browser",
+    "inputSecretPlaceholder": "",
     "buttonEncrypt": "Encrypt Message",
     "buttonEncryptLoading": "Encrypting message...",
     "inputOneTimeLabel": "One-time download",
@@ -36,8 +36,8 @@
     "subtitleExpired": "No secret last forever. All stored secrets will expires and self destruct automatically. Lifetime varies from one hour up to one week."
   },
   "result": {
-    "title": "Secret stored in database",
-    "subtitleDownloadOnce": "Remember that secrets can only be downloaded once if not set otherwise. So do not open the link yourself.",
+    "title": "Send link to Weave",
+    "subtitleDownloadOnce": "Send link to your Weave customer service representative by email??? Someone needs to decide what to put here.",
     "subtitleChannel": "The cautious should send the decryption key in a separate communication channel.",
     "rowLabelOneClick": "One-click link",
     "rowLabelShortLink": "Short link",

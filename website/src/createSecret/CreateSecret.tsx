@@ -8,7 +8,6 @@ import randomString, {
 import { useState } from 'react';
 import Result from '../displaySecret/Result';
 import Error from '../shared/Error';
-import Expiration from '../shared/Expiration';
 import {
   Checkbox,
   FormGroup,
@@ -24,17 +23,18 @@ import {
 const CreateSecret = () => {
   const { t } = useTranslation();
   const {
-    control,
     register,
     errors,
     handleSubmit,
-    watch,
     setError,
     clearErrors,
   } = useForm({
     defaultValues: {
       generateDecryptionKey: true,
       secret: '',
+      password: '',
+      expiration: '604800',
+      onetime: false,
     },
   });
   const [loading, setLoading] = useState(false);
@@ -56,9 +56,9 @@ const CreateSecret = () => {
     setLoading(true);
     try {
       const { data, status } = await postSecret({
-        expiration: parseInt(form.expiration),
+        expiration: 604800,
         message: await encryptMessage(form.secret, pw),
-        one_time: form.onetime,
+        one_time: false,
       });
 
       if (status !== 200) {
@@ -81,8 +81,6 @@ const CreateSecret = () => {
     setLoading(false);
   };
 
-  const generateDecryptionKey = watch('generateDecryptionKey');
-
   if (result.uuid) {
     return (
       <Result
@@ -101,7 +99,7 @@ const CreateSecret = () => {
         onClick={() => clearErrors('secret')}
       />
       <Typography component="h1" variant="h4" align="center">
-        {t('create.title')}
+        Please share this link with your Weave representative.
       </Typography>
       <form onSubmit={handleSubmit(onSubmit)}>
         <Grid container justifyContent="center" paddingTop={1}>
@@ -118,16 +116,6 @@ const CreateSecret = () => {
             placeholder={t('create.inputSecretPlaceholder')}
             inputProps={{ spellCheck: 'false', 'data-gramm': 'false' }}
           />
-          <Grid container justifyContent="center" marginTop={2}>
-            <Expiration control={control} />
-          </Grid>
-          <Grid container alignItems="center" direction="column">
-            <OneTime register={register} />
-            <SpecifyPasswordToggle register={register} />
-            {!generateDecryptionKey && (
-              <SpecifyPasswordInput register={register} />
-            )}
-          </Grid>
           <Grid container justifyContent="center">
             <Box p={2} pb={4}>
               <Button
@@ -136,9 +124,9 @@ const CreateSecret = () => {
                 disabled={loading}
               >
                 {loading ? (
-                  <span>{t('create.buttonEncryptLoading')}</span>
+                  <span>Loading...</span>
                 ) : (
-                  <span>{t('create.buttonEncrypt')}</span>
+                  <span>Secure Credentials</span>
                 )}
               </Button>
             </Box>
