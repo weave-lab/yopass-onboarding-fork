@@ -16,7 +16,7 @@
     "file-saver": "^2.0.5",
     "i18next": "^21.6.0",
     "memjs": "^1.3.0",
-    "next": "latest",
+    "next": "12.1.0",
     "next-i18next": "^10.0.1",
     "node-mocks-http": "^1.11.0",
     "openpgp": "^5.0.1",
